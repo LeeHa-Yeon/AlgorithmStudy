@@ -16,7 +16,7 @@ numList = list(map(int, input().split()))
 if isSequence(numList) :
     print(numList,"----> 연속된 숫자 입니다.")
 else :
-    print(numList,"----> 연속되지 않았습니다.")기
+    print(numList,"----> 연속되지 않았습니다.")
 
 
 
