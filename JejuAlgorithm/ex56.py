@@ -9,23 +9,43 @@ nationWidth = {
     'England' : 242900
 }
 
-tupleNation = nationWidth.items()
-country = ''
+stardardValue = nationWidth.get('korea')  # 220877
+nationWidth.pop('korea')
+keyList = nationWidth.keys()   # ['korea','Rusia','China','France','England']
+valueList = nationWidth.values()   # [220877, 1709842, 9596961, 543965, 242900]
+itemList = nationWidth.items()
+minGap = max(valueList)
 
-print(nationWidth.values())
+for itemTuple in itemList :
+    nationAbs = abs(stardardValue - itemTuple[1])
+    if minGap > nationAbs :
+        minGap = nationAbs
+        resultName = itemTuple[0]
 
-for i in nationWidth :
-    if i != 'korea' :
-        difference = abs(nationWidth['korea'] - nationWidth[i])
-        nationWidth[i] = difference
-
-# tuple(i[0],i[1])
-for i in tupleNation:
-    if i[1] == min(nationWidth.values()):
-        country = i[0]
+print(resultName,minGap)
 
 
-print(country,min(nationWidth.values()))
+
+
+
+
+
+# standardValue = nationWidth.get('korea')
+# tupleNation = nationWidth.items()
+# country = ''
+#
+#
+# for i in nationWidth :
+#     if i != 'korea' :
+#         difference = abs(standardValue - nationWidth[i])
+#         nationWidth[i] = difference
+#
+# for i in tupleNation:
+#     if i[1] == min(nationWidth.values()):
+#         country = i[0]
+#
+#
+# print(country,min(nationWidth.values()))
 
 
 '''
