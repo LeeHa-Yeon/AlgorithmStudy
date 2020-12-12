@@ -17,7 +17,7 @@ def changeMinute(time) :
 
 def printTime(time) :
     timeTuple = divmod(time,60)
-    return '{}시간 {}분'.format(timeTuple[0],timeTuple[1])
+    return '{:02d}시간 {:02d}분'.format(timeTuple[0],timeTuple[1])
 
 
 busSchedule = ["12:30","13:20","14:13"]
@@ -31,3 +31,10 @@ for subTime in busSchedule :
     else :
         answer.append(printTime(abs(differenceTime)))
 print(answer)
+
+'''
+format 정리 : https://reddb.tistory.com/71
+{0:2d} -> 2자리를 확보한 후 d정수를 넣는다
+{0:03d} -> 3자리를 확보한 후 d정수를 넣고 남은 공간을 0으로 채운다.
+        -> :앞의 숫자 0은 format의 순서를 의미 
+'''
