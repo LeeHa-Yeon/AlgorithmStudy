@@ -31,3 +31,7 @@ n = int(input())
 print(solution(n,prime(n)))
 
 
+'''
+< 순열,조합에 대한 링크 >
+https://velog.io/@hayeon/순열조합중복순열중복조합
+'''
