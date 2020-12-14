@@ -28,19 +28,18 @@ from itertools import product
 def solution(num) :
     gameList = []
     count = 0
-    for i in range(1,len(str(num))+1) :
-        gameList+= list(product([3, 6, 9], repeat=i))
+    for i in range(1,len(num)+1) :
+        gameList+= list(product(['3', '6', '9'], repeat=i))
 
-    print(gameList)
     for gameTuple in gameList :
-        count+=1
         gameStr = ''
+        count+=1
         for gameIndex in gameTuple :
-            gameStr+=str(gameIndex)
-        if int(gameStr) == num :
+            gameStr+=gameIndex
+        if int(gameStr) == int(num) :
             return count
     return count
 
 
 
-print(solution(36),"번 박수를 쳤습니다.")
+print(solution('36'),"번 박수를 쳤습니다.")
