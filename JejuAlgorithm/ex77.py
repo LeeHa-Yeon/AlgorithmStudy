@@ -20,3 +20,18 @@
 # 2.  LCS(Xi,Yj) = 0                                     ( if i=0 or j=0 )
 #                = LCS(X(i-1),Y(i-1)) +1                 ( if Xi = Yj )
 #                = max( LCS(Xi,Y(j-1) , LCS(X(i-1),Yj) ) ( if Xi ≠ Yj )
+
+arr2='THESTRINGS' # y축 6
+arr1='THISIS'# x축 7열
+
+dp=[[0 for _ in range(len(arr2)+1)]for _ in range(len(arr1)+1)] # 6행    7열
+
+for x in range(1,len(arr1)+1):
+   for y in range(1,len(arr2)+1):
+      if arr1[x-1] == arr2[y-1]:
+         dp[x][y]=dp[x-1][y-1]+1
+      else:
+         dp[x][y]=max(dp[x-1][y],dp[x][y-1])
+
+for i in dp :
+    print(i,dp[-1][-1])
