@@ -20,3 +20,25 @@
 # 0 0 * f *
 # 0 * f * 0
 # 0 0 * 0 0
+
+minesweeper = '0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0'
+minesweeper = minesweeper.replace('1','f')
+minesweeper = minesweeper.split(' ')
+
+
+for i in range(len(minesweeper)) :
+
+    if minesweeper[i] == 'f' :
+        if i % 5 > 0 :
+            minesweeper[i-1] = '*'
+        if (i+1) % 5 > 0 :
+            minesweeper[i+1] = '*'
+        if i > 4 :
+            minesweeper[i - 5] = '*'
+        if i < 20 :
+            minesweeper[i + 5] = '*'
+
+for i in range(len(minesweeper)) :
+    if i%5==0 and i!=0:
+        print()
+    print(minesweeper[i],end='')

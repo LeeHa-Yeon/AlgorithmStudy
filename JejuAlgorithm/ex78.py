@@ -1,5 +1,13 @@
 # 문제 78 : 원형 테이블
 
+
+def test() :
+    foodList = [1,2,3,4,5]
+
+    for i in foodList :
+        print(i)
+
+
 def roundTable(m,n) :
     foodList = [i for i in range(1,n+1)]
     idx = 0
@@ -16,4 +24,5 @@ def roundTable(m,n) :
             idx-=1
     return foodList
 
-print(roundTable(3,6))
+test()
+#print(roundTable(3,6))
