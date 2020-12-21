@@ -2,7 +2,8 @@
 
 def solution(list,n) :
     circuitList = list[:]
-    for _ in range(n) :
+    circuit = n % len(circuitList)  # 순회 횟수
+    for _ in range(circuit) :
         circuitList.insert(0,circuitList[-1])
         circuitList.pop(-1)
     distanceList = distance(list, circuitList)
