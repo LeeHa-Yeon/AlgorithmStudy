@@ -1,7 +1,35 @@
 # 문제 79 : 순회하는 리스트
 
-def test() :
-    l = [1,2,3,4,5,6,7]
+def solution(list,n) :
+    circuitList = list[:]
+    for _ in range(n) :
+        circuitList.insert(0,circuitList[-1])
+        circuitList.pop(-1)
+    distanceList = distance(list, circuitList)
+    answerIdx = distanceList.index(min(distanceList))
+    answerFirst = list[answerIdx]
+    answerSecond = circuitList[answerIdx]
+    return print(f'인덱스 : {answerIdx}\n순회전 리스트의 값 : {answerFirst}\n순회후 리스트의 값 : {answerSecond}')
+
+def distance(beforeList,afterList) :
+    distanceList = []
+
+    for i in range(len(afterList)) :
+        distanceList.append(abs(beforeList[i]-afterList[i]))
+
+    return distanceList
+
+
+
+solution([10,20,25,27,34,35,39],2)
+
+
+
+
+
+
+
+
 
 
 # def circuitList(list,n) :
