@@ -30,11 +30,11 @@ for i in range(len(minesweeper)) :
 
     if minesweeper[i] == 'f' :
         if i % 5 > 0 :
-            minesweeper[i-1] = '*'
+            minesweeper[i-1] = '^'
         if (i+1) % 5 > 0 :
-            minesweeper[i+1] = '*'
+            minesweeper[i+1] = '$'
         if i > 4 :
-            minesweeper[i - 5] = '*'
+            minesweeper[i - 5] = '#'
         if i < 20 :
             minesweeper[i + 5] = '*'
 

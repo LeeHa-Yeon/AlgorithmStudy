@@ -15,5 +15,5 @@ def math(ex) :
 
     return True
 
-ex = list("3+5")
+ex = list("(3+5)")
 print(math(ex))
