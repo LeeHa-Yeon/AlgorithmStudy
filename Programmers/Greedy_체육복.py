@@ -1,6 +1,7 @@
 def solution(n, lost, reserve):
     lost_del = set(lost)-set(reserve)
     reserve_del = set(reserve)-set(lost)
+
     for i in reserve_del :
         if i-1 in lost_del :
             lost_del.remove(i-1)
