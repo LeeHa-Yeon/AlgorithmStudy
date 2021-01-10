@@ -23,9 +23,7 @@ def solution(brown, yellow):
         answer.append(3)
     else :
         perList.append(list(combinations_with_replacement(divisorList,2)))
-        print(perList)
         for i in perList[0]:
-            print(i[0], i[1])
             if i[0] + i[1] == a and i[0] * i[1] == yellow:
                 answer.append(i[1] + 2)
                 answer.append(i[0] + 2)
