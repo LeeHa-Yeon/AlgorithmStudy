@@ -19,40 +19,40 @@ def solution(n,t1,t2):
 
     # group 대표자
     for i in range(len(t1)) :
-        newGroup.append({t1[i],t2[i]})
+        newGroup.append(sorted([t1[i],t2[i]]))
+    print(sorted(newGroup))
 
+    # while newGroup :
+    #     print(newGroup)
+    #     a = newGroup.pop(0)
+    #     delIndx= []
+    #     for k,i in enumerate(newGroup) :
+    #         if a & i :
+    #             a = a.union(i)
+    #             delIndx.append(i)
+    #             print(a)
+    #         else :
+    #
+    #             s = sorted(a)
+    #             idx = len(a) // 2
+    #             print("s", s)
+    #             if len(a) % 2 == 0 :
+    #                 result.append(s[idx-1])
+    #             else :
+    #                 result.append(s[idx])
+    #     while delIndx :
+    #         newGroup.remove(delIndx.pop())
+    #         print(newGroup,delIndx)
+    #     print("res",result)
 
-    while newGroup :
-        print(newGroup)
-        a = newGroup.pop(0)
-        delIndx= []
-        for k,i in enumerate(newGroup) :
-            if a & i :
-                a = a.union(i)
-                delIndx.append(i)
-                print(a)
-            else :
-
-                s = sorted(a)
-                idx = len(a) // 2
-                print("s", s)
-                if len(a) % 2 == 0 :
-                    result.append(s[idx-1])
-                else :
-                    result.append(s[idx])
-        while delIndx :
-            newGroup.remove(delIndx.pop())
-            print(newGroup,delIndx)
-        print("res",result)
-
-    s = sorted(a)
-    idx = len(a) // 2
-    if len(a) % 2 == 0:
-        result.append(s[idx - 1])
-    else:
-        result.append(s[idx])
-
-    result = set(result)
+    # s = sorted(a)
+    # idx = len(a) // 2
+    # if len(a) % 2 == 0:
+    #     result.append(s[idx - 1])
+    # else:
+    #     result.append(s[idx])
+    #
+    # result = set(result)
 
     return result
 
