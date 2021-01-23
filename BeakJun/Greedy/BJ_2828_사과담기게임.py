@@ -16,11 +16,12 @@ for i in range(len(nums)):
         count+=temp
         right+=temp
         left+=temp
-    if(nums[i]<left):
+    if(nums[i]<left): 
         temp = abs(nums[i]-left)
         count+=temp
         left-=temp
         right-=temp
+
 
 
 print(count)
