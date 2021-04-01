@@ -9,6 +9,7 @@ def solution(clothes) :
 
     clothes = dict(clothes)
     typeList = Counter(clothes.values())
+    print(typeList)
     answer = 1
     for i in typeList.values() :
         answer*=(i+1)
