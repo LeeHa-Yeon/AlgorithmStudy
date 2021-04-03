@@ -12,6 +12,7 @@ def solution(progresses, speeds):
     completeDays = deque()
 
     for i in range(len(progresses)) :
+        # 테스트케이스11 불통 -> math.ceil 쓸땐 /로 해야 올림이 됨
         completeDays.append(math.ceil((100 - progresses[i]) / speeds[i]))
 
 
