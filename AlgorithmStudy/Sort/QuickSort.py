@@ -16,3 +16,17 @@ def quick_sort(arr):
     return quick_sort(left_side) + [pivot] + quick_sort(right_side)
 
 print(quick_sort([14, 7, 3, 12, 9, 11, 6, 2]))
+
+
+'''
+14 
+7 3 12 9 11 6 2   []
+
+7
+3 6 2     12 9 11
+
+3         12
+2   6     9 11   []
+
+ 
+'''
