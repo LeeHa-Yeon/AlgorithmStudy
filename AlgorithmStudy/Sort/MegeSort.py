@@ -7,10 +7,8 @@ def merge_sort(list):
     if len(list) <= 1:
         return list
     mid = len(list) // 2
-    leftList = list[:mid]
-    rightList = list[mid:]
-    leftList = merge_sort(leftList)
-    rightList = merge_sort(rightList)
+    leftList = merge_sort(list[:mid])
+    rightList = merge_sort(list[mid:])
     return merge(leftList, rightList)
 
 def merge(left, right):
