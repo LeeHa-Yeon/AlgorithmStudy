@@ -28,26 +28,3 @@ def solution(N, stages):
 
 print(solution(5,[2, 1, 2, 6, 2, 4, 3, 3]))
 print(solution(4,[4,4,4,4,4]))
-
-
-
-'''
-    answer = []
-    result = []
-    stagesSet = set(stages)
-    print(stagesSet)
-    stages.sort()
-    print(stages)
-
-    for i in range(1,N+1):
-        stage =stages.count(i)
-        answer.append(stage/len(stages))
-        while stage :
-            stages.pop(0)
-            stage-=1
-
-    for _ in range(len(answer)) :
-        idx = answer.index(max(answer))
-        answer[idx] = -1
-        result.append(idx+1)
-'''
