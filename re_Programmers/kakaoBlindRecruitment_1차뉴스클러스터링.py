@@ -52,7 +52,7 @@ def solution(str1, str2):
 
     overlap.sort()
 
-    for p1, p2 in zip(overlap, overlap[1:]):
+    for p1, p2 in zip(overlap.copy(), overlap[1:].copy()):
         if p1[0] == p2[0] :
             if p1[1] < p2[1] :
                 union+=(p2[1]-1)
@@ -70,9 +70,18 @@ def solution(str1, str2):
 
     return int(intersection/union*65536)
 
-print(solution("FRANCE","french"))
-print(solution("handshake","shake hands"))
+# print(solution("FRANCE","french"))
+# print(solution("handshake","shake hands"))
 print(solution("aa1+aa2","AAAA12"))
-print(solution("E=M*C^2","e=m*c^2"))
-print(solution("aaabbbb", "aaaabbb"))
-print(solution('abcccc','cccdefff'))
+# print(solution("E=M*C^2","e=m*c^2"))
+# print(solution("aaabbbb", "aaaabbb"))
+# print(solution('abcccc','cccdefff'))
+# print(solution('cccdefff','abcccc'))
+# print(solution("ABDDD", "DDEFGHH"))
+# print(solution("AACCC", "A A A A A C C C C"))
+# print(solution("AAbbaa_AA"," BBB"))
+# print(solution("CCDEFGHH", "ABCCC"))
+# print(solution("FRANCE", "french"))
+# print(solution("handshake", "shake hands"))
+# print(solution("aa1+aa2", "AAAA12"))
+# print(solution("E=MC2", "e=mc2"))
