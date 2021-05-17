@@ -8,6 +8,6 @@ p	            result
 
 def solution(p):
     answer = ''
-    return answer
+    return answer 
 
 print(solution("(()())()"))
