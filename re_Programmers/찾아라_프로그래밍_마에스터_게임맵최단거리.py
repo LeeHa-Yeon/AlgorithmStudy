@@ -5,8 +5,8 @@ maps	answer
 '''
 from collections import deque
 def solution(maps):
-    row,col = len(maps),len(maps[1])
-    dx,dy = [-1,0,1,0],[0,1,0,-1] #
+    row,col = len(maps),len(maps[0])
+    dx,dy = [-1,0,1,0],[0,1,0,-1]
     dis = [[1]*col for _ in range(row)]
     Q = deque()
     Q.append((0,0))
@@ -14,7 +14,7 @@ def solution(maps):
     while Q :
         k = Q.popleft()
         for i in range(4) :
-            # 왼쪽,위,오른쪽,아래
+            # 왼쪽,위,오른쪽,아
             x = k[0]+dx[i]
             y = k[1]+dy[i]
 
@@ -26,7 +26,7 @@ def solution(maps):
     if dis[row-1][col-1] == 1 :
         return -1
     else :
-        return dis[row-1][col-1]
+        return dis[-1][-1]
 
 
 print(solution([[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]))
