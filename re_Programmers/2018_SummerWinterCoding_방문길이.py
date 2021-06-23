@@ -5,25 +5,31 @@ dirs	answer
 '''
 
 def solution(dirs):
-    firstLocation= (0,0)
+    firstLocation= (0,0,0,0)
     dx,dy =0,0
     s = set()
-    s.add(firstLocation)
 
     for i in dirs :
-        if i == "U" :
-            dy = firstLocation[1]+1
-        elif i == "D" :
-            dy = firstLocation[1]-1
-        elif i == "L" :
-            dx = firstLocation[0]-1
-        elif i == "R" :
-            dx = firstLocation[0]+1
-        print(i,dx,dy)
-        firstLocation = (dx,dy)
+        x,y = dx,dy
+        beforeLocation = firstLocation
+        if i == "U" and firstLocation[3]+1<=5:
+            dy = firstLocation[3]+1
+        elif i == "D" and firstLocation[3]-1>=-5:
+            dy = firstLocation[3]-1
+        elif i == "L" and firstLocation[2]-1>=-5:
+            dx = firstLocation[2]-1
+        elif i == "R" and firstLocation[2]+1<=5:
+            dx = firstLocation[2]+1
+        firstLocation = (x,y,dx,dy)
+        if firstLocation[0]==firstLocation[2] and firstLocation[1]==firstLocation[3] :
+            continue
+        if beforeLocation[0]==firstLocation[2] and beforeLocation[1]==firstLocation[3] and beforeLocation[2]==firstLocation[0] and beforeLocation[3]==firstLocation[1] :
+            continue
         s.add(firstLocation)
+        print(s)
 
     return len(s)
 
 print(solution("ULURRDLLU"))
 print(solution("LULLLLLLU"))
+print(solution("LRLRL"))
