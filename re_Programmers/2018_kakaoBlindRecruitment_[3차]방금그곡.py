@@ -8,6 +8,7 @@ m	musicinfos	answer
 from itertools import chain,repeat
 def solution(m, musicinfos):
     mLen = len(m.replace("#",""))
+    answer=dict()
 
     for musicinfo in musicinfos :
         musicSplit = musicinfo.split(",")
@@ -16,7 +17,14 @@ def solution(m, musicinfos):
             continue
         repeatSheet = "".join(list(chain.from_iterable(repeat(musicSplit[3],len(m)//len(musicSplit[3])+1))))
         if repeatSheet.find(m) != -1 :
-            return musicSplit[2]
+            answer[musicTime]=musicSplit[2]
+
+    if len(answer) > 1 :
+        return answer[list(sorted(answer.keys(),reverse=True))[0]]
+    if len(answer) == 1 :
+        return answer.popitem()[1]
+
+    return "(None)"
 
 
 print(solution("ABCDEFG",["12:00,12:14,HELLO,CDEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
