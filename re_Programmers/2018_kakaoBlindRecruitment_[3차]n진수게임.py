@@ -41,7 +41,7 @@ def solution(n, total, people , turn):
 
     return "".join(result[:total])
 
-
 print(solution(2,4,2,1))
 print(solution(8,16,2,1))
 print(solution(16,16,2,2))
+
