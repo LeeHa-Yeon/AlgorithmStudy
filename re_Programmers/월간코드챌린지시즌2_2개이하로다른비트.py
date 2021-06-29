@@ -8,15 +8,15 @@ def solution(numbers):
         # 짝수일 경우
         if num % 2 == 0 :
             answer.append(int(bin(num)[2:-1]+"1",2))
+        # 홀수일 경우
         else :
             numBinary = bin(num)[2:]
             if numBinary.count("1") == len(numBinary) :
                 numBinary = "10"+numBinary[1:]
-                answer.append(int(numBinary,2))
             else :
                 findIdx = numBinary.rfind("01")
                 numBinary = numBinary[:findIdx]+"10"+numBinary[findIdx+2:]
-                answer.append(int(numBinary,2))
+            answer.append(int(numBinary,2))
     return answer
 
 print(solution([2,7,21]))
