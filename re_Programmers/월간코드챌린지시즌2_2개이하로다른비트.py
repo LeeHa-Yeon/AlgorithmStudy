@@ -11,8 +11,10 @@ def solution(numbers):
         # 홀수일 경우
         else :
             numBinary = bin(num)[2:]
+            # 모든 비트가 1인 경우 앞에 있는 01을 10으로 바꿔줌
             if numBinary.count("1") == len(numBinary) :
                 numBinary = "10"+numBinary[1:]
+            # 모든 비트가 1이 아닌 경우엔 가장 마지막에 등장하는 01을 10으로 바꿔줌
             else :
                 findIdx = numBinary.rfind("01")
                 numBinary = numBinary[:findIdx]+"10"+numBinary[findIdx+2:]
