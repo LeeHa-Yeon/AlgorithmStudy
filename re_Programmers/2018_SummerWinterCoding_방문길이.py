@@ -5,31 +5,35 @@ dirs	answer
 '''
 
 def solution(dirs):
-    firstLocation= (0,0,0,0)
-    dx,dy =0,0
-    s = set()
+    locationVisit = []
+    cnt = 0
+    bx,by,x,y = 0,0,0,0
 
-    for i in dirs :
-        x,y = dx,dy
-        beforeLocation = firstLocation
-        if i == "U" and firstLocation[3]+1<=5:
-            dy = firstLocation[3]+1
-        elif i == "D" and firstLocation[3]-1>=-5:
-            dy = firstLocation[3]-1
-        elif i == "L" and firstLocation[2]-1>=-5:
-            dx = firstLocation[2]-1
-        elif i == "R" and firstLocation[2]+1<=5:
-            dx = firstLocation[2]+1
-        firstLocation = (x,y,dx,dy)
-        if firstLocation[0]==firstLocation[2] and firstLocation[1]==firstLocation[3] :
-            continue
-        if beforeLocation[0]==firstLocation[2] and beforeLocation[1]==firstLocation[3] and beforeLocation[2]==firstLocation[0] and beforeLocation[3]==firstLocation[1] :
-            continue
-        s.add(firstLocation)
-        print(s)
+    for dir in dirs :
+        bx,by = x,y
+        if dir=="U" and y<5:
+            y+=1
+        elif dir=="D" and y>-5:
+            y-=1
+        elif dir=="L" and x>-5 :
+            x-=1
+        elif dir=="R" and x<5 :
+            x+=1
+        if (bx,by,x,y) not in locationVisit :
+            if (bx==x and by==y) :
+                continue
+            locationVisit.append((bx,by,x,y))
+            locationVisit.append((x,y,bx,by))
+            cnt+=1
 
-    return len(s)
+    return cnt
 
-print(solution("ULURRDLLU"))
-print(solution("LULLLLLLU"))
-print(solution("LRLRL"))
+
+
+print(solution("ULURRDLLU")) #7
+print(solution("LULLLLLLU")) #7
+print(solution("UDU")) # 1
+print(solution("LLLLRLRLRLL")) # 5
+print(solution("UUUUDUDUDUUU")) # 5
+print(solution("LURDLURDLURDLURDRULD")) # 7
+print(solution("RRRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUULU")) # 11
