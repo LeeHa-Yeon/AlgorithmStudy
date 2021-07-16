@@ -64,11 +64,3 @@ def solution(n, k):
     return result
 
 print(solution(4,5))
-
-
-'''
-1. 문제풀이 아이디어
-2. 코드
-3. 구현방식 
-4. 사용메소드,라이브러리 등 원리 
-'''
