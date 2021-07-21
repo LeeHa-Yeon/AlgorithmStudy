@@ -92,40 +92,41 @@ n	k	cmd	result
 '''
 
 def solution(n, k, cmd):
-    test = [ i for i in range(n)]
-    origin = ["O"]* n
-    location = test[k]
-    deleteList = []
-
+    table = [ i for i in range(n)]
+    ox_table = ["O"]* n
+    location = table[k]
+    deleted_stack = []
     for i in cmd :
-        idx = test.index(location)
+        idx = table.index(location)
 
         if "D" in i :
             move = int(i.split()[1])
-            location = test[idx+move]
+            location = table[idx+move]
         elif "U" in i :
             move = int(i.split()[1])
-            location = test[idx-move]
+            location = table[idx-move]
         elif "C" in i :
-            if location == test[-1] :
-                location = test[idx - 1]
-                idx = test.index(location)
-                deleteList.append(test.pop(idx+ 1))
+            if location == table[-1] :
+                location = table[idx - 1]
+                idx = table.index(location)
+                deleted_stack.append(table.pop(idx+ 1))
             else :
-                location = test[idx+1]
-                idx = test.index(location)
-                deleteList.append(test.pop(idx-1))
+                location = table[idx+1]
+                idx = table.index(location)
+                deleted_stack.append(table.pop(idx-1))
         elif "Z" in i :
-            test.append(deleteList.pop())
-            test.sort()
-        # print(test,location)
+            table.append(deleted_stack.pop())
+            table.sort()
 
-    for i in deleteList :
-        origin[i] = "X"
+    for i in deleted_stack :
+        ox_table[i] = "X"
 
-    return "".join(origin)
+    return "".join(ox_table)
 
 # print(solution(8,2,["D 5","C","C","U 1","C"]))
 print(solution(8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z"]))
 print(solution(8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z","U 1","C"]))
 # print(solution(8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z"]))
+
+# 제가 생각했을땐 시간복잡도가 n보다 작을수가 있나 생각을 했어요 -> 제 머리로는 n보다 작을려면 최소한 다른 알고리즘을 이용하여 풀어야된다 생각했는데 잘 모르겠어서
+# -> 찾아보니 heap, linked list를 사용하고 이것을 분석해본 결과
