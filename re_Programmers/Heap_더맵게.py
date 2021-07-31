@@ -10,15 +10,14 @@ def solution(scoville, K):
     cnt = 0
 
     while scoville[0] < K and len(scoville) > 1 :
-        heapq.heappush(scoville,heapq.heappop(scoville) + (2 * heapq.heappop(scoville)))
+        first = heapq.heappop(scoville)
+        second = heapq.heappop(scoville)
+        heapq.heappush(scoville,first + (2 * second))
         cnt+=1
 
     if len(scoville) == 1 and scoville[0] < K :
         cnt = -1
 
-
     return cnt
 
 print(solution([1, 2, 3, 9, 10, 12],7))
-
-
