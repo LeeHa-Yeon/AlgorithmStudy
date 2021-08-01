@@ -19,7 +19,6 @@ def solution(n, computers):
     while False in visited :
         for v in range(n) :
             if visited[v] == False:
-                print(visited)
                 dfs(n,computers,visited,v)
                 cnt += 1
     return cnt
