@@ -6,7 +6,7 @@ def solution(m, n, puddles):
         for y in range(m):
             if x==y==0 :
                 continue
-            if [x+1,y+1] in puddles:
+            if [y+1,x+1] in puddles:
                 answer[x][y] = 0
             else:
                 if x == 0:
