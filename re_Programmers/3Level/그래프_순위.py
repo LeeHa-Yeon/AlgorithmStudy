@@ -16,6 +16,7 @@ def solution(n, results):
         # 힘의 우열로 인해 i가 이긴 사람들에게 모두 짐
         for loser in win[i] :
             lose[loser].update(lose[i])
+
     for i in range(1, n + 1):
         if len(win[i] | lose[i]) == n - 1:
             cnt += 1
