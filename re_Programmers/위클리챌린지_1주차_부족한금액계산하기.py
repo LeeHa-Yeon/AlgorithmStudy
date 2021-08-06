@@ -12,4 +12,5 @@ def solution(price, money, count):
         return 0
     return result
 
+
 print(solution(3,20,4))
