@@ -1,29 +1,19 @@
-import re
-from collections import deque
+expressions = input()
 
-expression = input()
+expressions = expressions.split("-")
 
-numbers = deque(re.findall("\d+",expression))
-operators = re.findall("\W",expression)
+for expIdx in range(len(expressions)) :
+    expList = map(int,expressions[expIdx].split("+"))
+    expressions[expIdx] = sum(expList)
 
-answer = numbers.popleft()
-number = 0
+answer = expressions[0]
 
-for first,second in zip(operators,operators[1:]) :
+for num in expressions[1:] :
+    answer-=num
 
-    if first=='+' and second=='-' :
-        number = -(number)
-        answer+=number
-        number = 0
-    elif first=='-' and second=='+' :
-        number = numbers.popleft()
-    elif first=='-' and second=='-' :
-        answer-=numbers.popleft()
-    else :
-        number+=numbers.popleft()
+print(answer)
 
 
 
 
 
-print(numbers,operators)
