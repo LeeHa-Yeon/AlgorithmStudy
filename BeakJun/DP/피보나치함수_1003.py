@@ -7,12 +7,16 @@ for _ in range(T) :
     nList.append(N)
 
 dp = [0]*(max(nList)+1)
-dp[0] = 0
-dp[1] = 1
-
-print(dp)
+dp[0] = '0'
+dp[1] = '1'
 
 for i in range(2,max(nList)+1) :
     dp[i] = dp[i-1]+dp[i-2]
 
-print(dp[max(nList)])
+
+for n in nList :
+    l = list(dp[n])
+    zeroCnt = l.count('0')
+    oneCnt = l.count('1')
+
+    print(zeroCnt,oneCnt)
